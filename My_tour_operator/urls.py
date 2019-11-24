@@ -12,12 +12,16 @@ Class-based views
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from . import settings as Settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('myapp/', include('myapp.urls'))
+
 ]
+# if Settings.DEBUG:
+#     urlpatterns += staticfiles_urlpatterns()
 
 
 # The include() function allows referencing other URLconfs. Whenever Django encounters include(),
