@@ -1,0 +1,4 @@
+asyncio
+requests_async
+bs4
+Django
