@@ -1,6 +1,21 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
-def index(request):
-    return render(request, 'main_page.html')
+def home_page(request):
+    return render(request, 'homepage.html')
+
+
+def get_tour(request):
+    return render(request, 'tour_agregator.html')
+
+
+def info(request):
+    return render(request, 'info.html')
+
+
+def tours(request):
+    return render(request, 'tours.html')
+
+
+def login(request):
+    return render(request, 'login_page.html')

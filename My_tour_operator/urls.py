@@ -12,22 +12,9 @@ Class-based views
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import settings as Settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp/', include('myapp.urls'))
+    path('', include('myapp.urls')),
 
 ]
-# if Settings.DEBUG:
-#     urlpatterns += staticfiles_urlpatterns()
-
-
-# The include() function allows referencing other URLconfs. Whenever Django encounters include(),
-# it chops off whatever part of the URL matched up to that point and sends the remaining string to the included URLconf for further processing.
-#
-# The idea behind include() is to make it easy to plug-and-play URLs. Since polls are in their own URLconf (polls/urls.py),
-# they can be placed under “/polls/”, or under “/fun_polls/”, or under “/content/polls/”, or any other path root, and the app will still work.
-#
-# ! You should always use include() when you include other URL patterns
