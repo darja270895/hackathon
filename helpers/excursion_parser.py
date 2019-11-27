@@ -62,3 +62,20 @@ class Sputnik8(Parser):
         resp = await self.get(url=self.categories_url,
                               params=params)
         return resp.json()
+
+
+class Tripster(Parser):
+    base_url = 'https://experience.tripster.ru/api/experiences'
+
+    async def get_trip(self, city_name: str, page=1) -> dict:
+        """ Get excursions by city name.
+
+        :param city_name: name of the city.
+        :param page:      number of page.
+        :return:          dict with response.
+        """
+        data = {'page': page,
+                'city__name_en': city_name}
+        resp = await self.get(url=self.base_url,
+                              params=data)
+        return resp.json()

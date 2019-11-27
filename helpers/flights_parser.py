@@ -9,7 +9,7 @@ class AviasalesParser(Parser):
 
     @property
     def country_url(self):
-        return r'http://api.travelpayouts.com/data/ru/cities.json'
+        return r'http://api.travelpayouts.com/data/cities.json'
 
     @property
     def aviasales_headers(self) -> dict:
@@ -35,8 +35,8 @@ class AviasalesParser(Parser):
     async def get_countries(self) -> dict:
         """ Get info about countries.
 
+        :param params: dict with data
         :return: dict with countries data.
         """
-        resp = await self.get(url=self.country_url,
-                              headers=self.aviasales_headers)
+        resp = await self.get(url=self.country_url)
         return resp.json()

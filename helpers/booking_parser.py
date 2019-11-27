@@ -73,3 +73,22 @@ class TravelataParser(Parser):
         resp = await self.get(url=self.resorts_url,
                               params=params)
         return resp.json()
+
+
+class Hotellook(Parser):
+    @property
+    def base_url(self):
+        return 'http://engine.hotellook.com/api/v2/lookup.json?'
+
+    async def get_hotels(self, params: dict = None) -> dict:
+        """ Get hotel info.
+
+        :param params: params for request.
+        :return:       dict with hotels.
+        """
+        resp = await self.get(url=self.base_url,
+                              params=params)
+        return resp.json()
+
+
+
