@@ -37,11 +37,11 @@
 
         {% for info in all_info %}
         <div class="jumbotron">
-            <h1>Фильм #{{info.count}}</h1>
+            <h1>Тур #{{info.index}}</h1>
             <table>
-                <b>Название: </b> {{info.hotel}} (англ. {{info.title_en}})<br>
-                <b>Год: </b>{{info.flight}} <br>
-                <b>Рейтинг: </b> {{info.excursion}}<br>
+                <b>Отель: </b> {{info.hotel}} (англ. {{info.title_en}})<br>
+                <b>Билет: </b>{{info.flight}} <br>
+                <b>Экскурсия: </b> {{info.excursion}}<br>
                 <a class="btn btn-lg btn-primary" href={{info.url}} role="button">Больше
                     информации»</a>
         </div>

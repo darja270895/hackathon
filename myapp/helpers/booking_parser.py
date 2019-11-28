@@ -1,4 +1,4 @@
-from hackathon.helpers.parser import Parser, loop
+from .parser import Parser
 
 
 class TravelataParser(Parser):
