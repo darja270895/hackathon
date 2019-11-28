@@ -1,4 +1,52 @@
 {% extends "wrapper.html" %}
 {% block content %}
-<h1>Нужно придумать что на главной:</h1>
+<main role="main" class="container">
+    <div class="jumbotron">
+        <h1>Нужно придумать какие поля заполнять:</h1>
+        <div class="form-row">
+
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+        </div>
+
+
+        <a class="btn btn-lg btn-primary" href="/" role="button">Подобрать
+            тур»</a>
+
+        {% for info in all_info %}
+        <div class="jumbotron">
+            <h1>Фильм #{{info.count}}</h1>
+            <table>
+                <b>Название: </b> {{info.hotel}} (англ. {{info.title_en}})<br>
+                <b>Год: </b>{{info.flight}} <br>
+                <b>Рейтинг: </b> {{info.excursion}}<br>
+                <a class="btn btn-lg btn-primary" href={{info.url}} role="button">Больше
+                    информации»</a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
 {% endblock %}
