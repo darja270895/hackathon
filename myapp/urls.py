@@ -1,17 +1,15 @@
 from django.urls import path
+from django.conf.urls import url
 
 from . import views
 
-
 urlpatterns = [
     path('', views.home_page),
-    path('tour_agregator/', views.get_tour),
     path('info/', views.info),
     path('tours/', views.tours),
-    path('login/', views.login),
+    path('index/', views.index),
+    url(r'index/register/$', views.RegisterFormView.as_view()),
+    url(r'index/login/$', views.LoginFormView.as_view()),
+    url(r'index/logout/$', views.LogoutView.as_view()),
+    url(r'index/password-change/', views.PasswordChangeView.as_view())
 ]
-
-
-
-
-
