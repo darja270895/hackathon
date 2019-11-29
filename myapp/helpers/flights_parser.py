@@ -1,5 +1,5 @@
-from hackathon.helpers.parser import Parser
-from hackathon.configs.config import aviasales_token
+from .parser import Parser
+from .configs.config import aviasales_token
 
 
 class AviasalesParser(Parser):

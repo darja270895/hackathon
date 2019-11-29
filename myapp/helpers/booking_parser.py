@@ -1,4 +1,4 @@
-from hackathon.helpers.parser import Parser, loop
+from .parser import Parser
 
 
 class TravelataParser(Parser):
@@ -89,6 +89,3 @@ class Hotellook(Parser):
         resp = await self.get(url=self.base_url,
                               params=params)
         return resp.json()
-
-
-

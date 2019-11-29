@@ -1,4 +1,4 @@
-from hackathon.helpers.parser import Parser
+from .parser import Parser
 
 
 class Sputnik8(Parser):
