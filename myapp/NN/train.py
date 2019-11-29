@@ -35,7 +35,7 @@ model = Sequential()
 model.add(Dense(11, input_shape=(11, ), activation='relu'))
 model.add(Dense(6, activation='relu'))
 model.add(Dense(7, activation='relu'))
-model.add(Dense(14, activation='relu'))
+model.add(Dense(12, activation='relu'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(xarr, y_categorial, epochs=150, batch_size=10)
