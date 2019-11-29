@@ -1,0 +1,16 @@
+{% extends 'login_page.html' %}
+
+{% block main %}
+
+{% for info in all_info %}
+<li>
+    <h4 class="card-title">User Data</h4>
+    <b>{{ info.data }}</b>
+</li>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
