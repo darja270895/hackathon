@@ -2,7 +2,7 @@ from keras.models import model_from_json
 import pyexcel as pe
 import numpy
 from sklearn.preprocessing import LabelBinarizer
-
+import keras.losses as losses
 
 class Predict():
     def __init__(self, dataset=pe.get_array(file_name='dataset.xls')):
@@ -54,6 +54,7 @@ class Predict():
         # print(self.classes)
         # print(' {} => class - {} name {} (expected {})'.format(predictions, predictions_class, encoder.classes_[predictions_class], y_categorial))
         # print("Prediction: {}".format(encoder.classes_[predictions_class][0]))
+
 
         return encoder.classes_[predictions_class][0]
 
