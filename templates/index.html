@@ -2,8 +2,9 @@
 
 {% block main %}
 
-<h4 class="card-title">Ваши данные: </h4>
+
 {% for user in user_info %}
+<h4 class="card-title">Ваши данные: </h4>
 <div class="jumbotron">
 
     <p>Вопрос1: {{ user.data.q1 }}</p>
@@ -20,8 +21,9 @@
 </div>
 {% endfor %}
 
-<h4 class="card-title">Свежая подборка туров для вас: </h4>
+
 {% for tour in tour_info %}
+<h4 class="card-title">Свежая подборка туров для вас: </h4>
 <li>
     <div class="jumbotron">
         <p>Экскурсия: {{ tour.excursion.title }}</p>
