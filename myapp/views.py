@@ -81,7 +81,7 @@ def index(request):
                 context = {'data': data}
                 user_info.append(context)
 
-        country_name = 'Испания'
+        country_name = 'Германия'
 
         tour_info = []
         for country in Country.objects.all():
