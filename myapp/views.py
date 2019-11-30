@@ -12,6 +12,7 @@ from .models import Country, UserData
 
 from .tour_manager import TourManager
 from .helpers.parser import loop
+from .helpers.configs.tours import TOURS
 
 manager = TourManager()
 
@@ -58,15 +59,26 @@ def tours(request):
 
 def index(request):
     if request.user.is_authenticated:
-        all_info = []
-        username = request.user.username
-        users = UserData.objects.all()
-        for user in users:
-            if username == user.username:
-                user_data = user.data
-                context = {'data': user_data}
-                all_info.append(context)
-        context = {'all_info': all_info}
+        # all_info = []
+        # username = request.user.username
+        # users = UserData.objects.all()
+        # for user in users:
+        #     if username == user.username:
+        #         user_data = user.data
+        #         context = {'data': user_data}
+        #         all_info.append(context)
+
+        country_name = 'Германия'  # get by ML
+        tour_info = []
+        for country in Country.objects.all():
+            if country_name == country.rus_country_name:
+                data = {'Excursions': TOURS.get(),
+                        'Flights': '',
+                        'Hotels': '',
+                        }
+                tour_info.append()
+
+        context = {'all_info': countries}
         return render(request, 'index.html', context)
     else:
         return render(request, 'index.html')
