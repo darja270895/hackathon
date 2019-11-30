@@ -2,3 +2,4 @@ asyncio
 requests_async
 bs4
 Django
+django-crispy-forms
