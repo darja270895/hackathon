@@ -98,7 +98,6 @@ def index(request):
                         'flight': flights[index],
                         'hotel': hotels[index],
                     }
-
                     tour_info.append(tour_data)
 
         context = {'user_info': user_info, 'tour_info': tour_info}
