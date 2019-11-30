@@ -37,14 +37,14 @@ def home_page(request):
     #                              limit=limit,
     #                              flights_params=flights_params,
     #                              lang=lang))
-    # all_info = []
+    # user_info = []
     # for index in range(limit):
     #     data = {'excursion': excursions[index],
     #             'flight': flights[index],
     #             'hotel': hotels[index],
     #             'index': index+1}
-    #     all_info.append(data)
-    # context = {'all_info': all_info}
+    #     user_info.append(data)
+    # context = {'user_info': user_info}
     # return render(request, 'homepage.html', context)
     return render(request, 'homepage.html')
 
@@ -59,26 +59,49 @@ def tours(request):
 
 def index(request):
     if request.user.is_authenticated:
-        # all_info = []
-        # username = request.user.username
-        # users = UserData.objects.all()
-        # for user in users:
-        #     if username == user.username:
-        #         user_data = user.data
-        #         context = {'data': user_data}
-        #         all_info.append(context)
+        user_info = []
+        username = request.user.username
+        users = UserData.objects.all()
+        for user in users:
+            if username == user.username:
+                user_data = user.data.split('|')
+                data = {
+                    'q1': user_data[0].replace("'", ""),
+                    'q2': user_data[1],
+                    'q3': user_data[2],
+                    'q4': user_data[3],
+                    'q5': user_data[4],
+                    'q6': user_data[5],
+                    'q7': user_data[6],
+                    'q8': user_data[7],
+                    'q9': user_data[8],
+                    'q10': user_data[9],
+                    'q11': user_data[10].replace("'", ""),
+                }
+                context = {'data': data}
+                user_info.append(context)
 
-        country_name = 'Германия'  # get by ML
+        country_name = 'Испания'
+
         tour_info = []
         for country in Country.objects.all():
-            if country_name == country.rus_country_name:
-                data = {'Excursions': TOURS.get(),
-                        'Flights': '',
-                        'Hotels': '',
-                        }
-                tour_info.append()
+            if country.rus_country_name == country_name:
+                name = country.country_name
+                info = TOURS
+                country_data = info.get(name)
+                excursions = country_data.get('Excursions')
+                flights = country_data.get('Flights')
+                hotels = country_data.get('Hotels')
+                for index in range(3):
+                    tour_data = {
+                        'excursion': excursions[index],
+                        'flight': flights[index],
+                        'hotel': hotels[index],
+                    }
 
-        context = {'all_info': countries}
+                    tour_info.append(tour_data)
+
+        context = {'user_info': user_info, 'tour_info': tour_info}
         return render(request, 'index.html', context)
     else:
         return render(request, 'index.html')

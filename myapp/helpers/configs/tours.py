@@ -3220,6 +3220,3 @@ TOURS = {
         ]}
 
 }
-
-for i in TOURS:
-    print(f'{i} - {TOURS[i]}')
