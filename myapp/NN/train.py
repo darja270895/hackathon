@@ -73,7 +73,7 @@ class Train:
     def train(self):
 
         self.model.add(Dense(11, input_shape=(11, ), activation='relu'))
-        self.model.add(Dense(200, activation='relu'))
+        self.model.add(Dense(300, activation='relu'))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(100, activation='relu'))
         self.model.add(Dropout(0.5))
@@ -83,7 +83,7 @@ class Train:
         #fscore   yandex catboost - for categorial data
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy', ])
-        self.model.fit(self.x, self.y_categorial, epochs=500, batch_size=16)
+        self.model.fit(self.x, self.y_categorial, epochs=1000, batch_size=16)
         _, accuracy = self.model.evaluate(self.x, self.y_categorial)
         print('Accuracy: %.2f' % (accuracy*100))
 
