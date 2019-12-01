@@ -3,3 +3,9 @@ requests_async
 bs4
 Django
 django-crispy-forms
+keras
+pyexcel
+numpy
+sklearn
+tensorflow
+pyexcel-xls

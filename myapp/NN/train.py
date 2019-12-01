@@ -6,8 +6,20 @@ from keras.layers import Dense, Activation, Flatten, Dropout
 # from keras.preprocessing.text import one_hot, text_to_word_sequence
 from collections import Counter
 
+import os
+
+
+def path():
+    path = os.path.abspath(__file__)
+    test_dataset = path.replace('train.py', 'test_dataset.xls')
+    dataset = path.replace('train.py', 'dataset.xls')
+    model = path.replace('train.py', 'model.h5')
+    j_models = path.replace('train.py', 'model.json')
+    return test_dataset, dataset, model, j_models
+
+
 class Train:
-    def __init__(self, dataset = pe.get_array(file_name='dataset.xls')):
+    def __init__(self, dataset=pe.get_array(file_name=path()[1])):
         self.dataset = dataset
         self.model = Sequential()
         self.x = []
@@ -20,7 +32,7 @@ class Train:
         arr = numpy.asarray(self.dataset)
         length = len(arr[0])
         new_arr = []
-        #swapp arr
+        # swapp arr
         for column in range(length):
             temp_arr = []
             for row in range(len(arr)):
@@ -29,12 +41,10 @@ class Train:
 
         new_arr = numpy.asarray(new_arr)
 
-
         unique_list = []
 
         for counter in range(len(new_arr)):
             unique_list.append(len(Counter(new_arr[counter]).keys()))
-
 
         self.set_list = []  # list of indexes: unique values
         for elem in new_arr:
@@ -46,9 +56,9 @@ class Train:
 
         self.numb_arr = []
 
-        for i in range(length): #col
+        for i in range(length):  # col
             temp_list = []
-            for j in range(len(self.dataset)): #rows
+            for j in range(len(self.dataset)):  # rows
                 for counter in range(len(self.set_list[i])):
                     if new_arr[i][j] == self.set_list[i][counter]:
                         temp_list.append(counter)
@@ -57,11 +67,10 @@ class Train:
 
             self.numb_arr.append(temp_list)
 
-        #set_x
+        # set_x
         x = numpy.asarray(self.numb_arr)
         x = x[0:11]
         self.x = numpy.reshape(x, (x.shape[1], x.shape[0]))
-
 
     def set_y(self):
 
@@ -72,31 +81,29 @@ class Train:
 
     def train(self):
 
-        self.model.add(Dense(11, input_shape=(11, ), activation='relu'))
+        self.model.add(Dense(11, input_shape=(11,), activation='relu'))
         self.model.add(Dense(1000, activation='relu'))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(500, activation='relu'))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(self.y_categorial.shape[1], activation='softmax'))
 
-#boosting
-        
-        #fscore   yandex catboost - for categorial data
+        # boosting
+
+        # fscore   yandex catboost - for categorial data
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy', ])
         self.model.fit(self.x, self.y_categorial, epochs=500, batch_size=16)
         _, accuracy = self.model.evaluate(self.x, self.y_categorial)
-        print('Accuracy: %.2f' % (accuracy*100))
-
-
+        print('Accuracy: %.2f' % (accuracy * 100))
 
     def serialize_model(self):
         model_json = self.model.to_json()
-        with open("model.json", "w") as json_file:
+        with open(path()[3], "w") as json_file:
             json_file.write(model_json)
 
         # serialize weights to HDF5
-        self.model.save_weights("model.h5")
+        self.model.save_weights(path([3]))
         print("Saved model to disk")
 
 

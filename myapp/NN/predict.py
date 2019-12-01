@@ -4,12 +4,13 @@ import numpy
 from sklearn.preprocessing import LabelBinarizer
 # from collections import Counter
 # import keras.losses as losses
-from train import Train
+# from NN.train import Train
+from .train import Train, path
 
 
 class Predict():
-    def __init__(self, dataset=pe.get_array(file_name='test_dataset.xls')):
-        self.excel_dataset = pe.get_array(file_name='dataset.xls')
+    def __init__(self, dataset=pe.get_array(file_name=path()[0])):
+        self.excel_dataset = pe.get_array(file_name=path()[1])
         self.dataset = dataset
         self.classes = []
         self.set_list = []
@@ -43,17 +44,16 @@ class Predict():
         for i in range(length):  # col - 11
             temp_list = []
             for j in range(len(self.dataset)):  # rows - 1
-                for counter in range(len(self.set_list[i])): # - 12 5
+                for counter in range(len(self.set_list[i])):  # - 12 5
                     if new_arr[i][j] == self.set_list[i][counter]:
                         temp_list.append(counter)
                     else:
-                        ...
+                        print(f'No match {new_arr[i][j]} and {self.set_list[i][counter]}')
 
             self.numb_arr.append(temp_list)
 
         self.x = numpy.asarray(self.numb_arr)
         self.x = numpy.reshape(self.x, (self.x.shape[1], self.x.shape[0]))
-
 
         encoder = LabelBinarizer()
 
@@ -61,11 +61,12 @@ class Predict():
         y = y_arr[:, 11]
 
         encoder.fit_transform(y)
-        json_file = open('model.json', 'r')
+        json_file = open(path()[3], 'r')
         loaded_model_json = json_file.read()
         json_file.close()
+        # loaded_model = model_from_json(data)
         loaded_model = model_from_json(loaded_model_json)
-        loaded_model.load_weights("model.h5")
+        loaded_model.load_weights(path()[2])
         loaded_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
         # predictions = loaded_model.predict(self.x)
@@ -79,28 +80,10 @@ class Predict():
         # for i in range(5):
         #     print(' {} => class - {} name {} (expected {})'.format(predictions[i], predictions_class[i], encoder.classes_[predictions_class[i]],  y_categorial[i]))
 
-
         return encoder.classes_[predictions_class][0]
 
 
-p0 = Predict([['нейтральные комфортные дни', 'не уверен, удивите меня', 'парой', 'всего понемногу',
-              'необычные местные блюда', 'не имеет значения', 'командные, игровые', 'места с историей',
-              'отдых от работы и людей', 'две недели', 'в туристической части города']])
-a0 = p0.predict_data()
-print(a0)
-
-
-#
-# p = Predict([['нет предпочтений', 'ленивый', 'парой', 'спорт', 'необычные местные блюда',
-#               'несколько ( до 6) часов', 'командные, игровые', 'причудливые и максимально необычные', 'отдых от работы и людей', 'на неделю',
-#               'нет предпочтений']])
-# a = p.predict_data()
-# print(a)
-
-
-p1 = Predict([['нейтральные комфортные дни', 'не уверен, удивите меня', 'парой', 'всего понемногу',
-               'необычные местные блюда', 'не имеет значения', 'командные, игровые', 'места с историей',
-               'отдых от работы и людей', 'на уикэнд', 'в туристической части города']])
-a1 = p1.predict_data()
-print(a1)
-
+def get_data(user_data: list):
+    p1 = Predict([user_data])
+    a1 = p1.predict_data()
+    return a1

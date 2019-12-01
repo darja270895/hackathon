@@ -12,6 +12,7 @@ from .models import Country, UserData
 
 from .tour_manager import TourManager
 from .helpers.parser import loop
+from .NN.predict import Predict
 from .helpers.configs.tours import TOURS
 
 manager = TourManager()
@@ -163,8 +164,14 @@ def index(request):
                 }
                 context = {'data': data}
                 user_info.append(context)
+                user_data[0] = user_data[0].replace("'", "")
+                user_data[10] = user_data[10].replace("'", "")
+                # predict_instance = Predict([user_data])
+                # country_name = predict_instance.predict_data()
 
-        country_name = 'Германия'
+        # country_name = 'Германия'
+        from .NN.predict import get_data
+        country_name = get_data(user_data)
 
         tour_info = []
         for country in Country.objects.all():
