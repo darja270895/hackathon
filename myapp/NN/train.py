@@ -1,9 +1,9 @@
 import pyexcel as pe
 import numpy
-from sklearn.preprocessing import LabelBinarizer, StandardScaler
+from sklearn.preprocessing import LabelBinarizer
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Flatten, Dropout
-from keras.preprocessing.text import one_hot, text_to_word_sequence
+# from keras.preprocessing.text import one_hot, text_to_word_sequence
 from collections import Counter
 
 class Train:
@@ -73,17 +73,18 @@ class Train:
     def train(self):
 
         self.model.add(Dense(11, input_shape=(11, ), activation='relu'))
-        self.model.add(Dense(300, activation='relu'))
+        self.model.add(Dense(1000, activation='relu'))
         self.model.add(Dropout(0.5))
-        self.model.add(Dense(100, activation='relu'))
+        self.model.add(Dense(500, activation='relu'))
         self.model.add(Dropout(0.5))
         self.model.add(Dense(self.y_categorial.shape[1], activation='softmax'))
 
-
+#boosting
+        
         #fscore   yandex catboost - for categorial data
 
         self.model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy', ])
-        self.model.fit(self.x, self.y_categorial, epochs=1000, batch_size=16)
+        self.model.fit(self.x, self.y_categorial, epochs=500, batch_size=16)
         _, accuracy = self.model.evaluate(self.x, self.y_categorial)
         print('Accuracy: %.2f' % (accuracy*100))
 
