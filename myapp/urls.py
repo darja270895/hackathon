@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home_page),
+    url(r'search.php?\w+', views.home_page),
     path('info/', views.info),
     path('tours/', views.tours),
     path('index/', views.index),
