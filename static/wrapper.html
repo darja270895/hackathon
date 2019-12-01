@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Цякай з городу</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--    <style>-->
+
+    <!--        nav a:hover-->
+    <!--{-->
+    <!--    color: #116466;-->
+    <!--    background: cadetblue;-->
+    <!--}-->
+
+    <!--nav a.selected{-->
+    <!-- color: #116466;-->
+    <!--}-->
+
+    <!--.submbutton-->
+    <!--{-->
+    <!--width: 187px;-->
+    <!--height: 36px;-->
+    <!--background: #3fb0ac;-->
+    <!--border-radius: 5px;-->
+    <!--}-->
+
+    <!--.submbutton:hover-->
+    <!--{-->
+    <!--background: #173e43;-->
+    <!--}-->
+    <!--    </style>-->
+</head>
+
+<body>
+    <header id="head">
+        <h5>Цякай з гораду</h5>
+        <nav>
+            <a class="text-dark selected" href="/">Главная</a>
+            <a class="text-dark" href="/tours">Готовые туры</a>
+            <a class="text-dark" href="/info">О нас</a>
+            <a class="text-dark" href="/index">Личный кабинет</a>
+        </nav>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    </main>
+</body>
