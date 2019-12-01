@@ -56,14 +56,19 @@
       <div class="cardheader">
         <h3>Экскурсия: {{ tour.excursion.title }}</h3>
       </div>
-      <div class="card-wrapper">
-        <p>Длительность: {{ tour.excursion.duration }}</p>
-        <p>Длительность: {{ tour.excursion.description }}</p>
-        <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
-        <p>Билеты: {{ tour.flight.gate}}</p>
-        <p>Отели: {{ tour.hotel.label }}</p>
-        <p>Стоимость: {{ tour.excursion.netto_price}}</p>
-        <img src="{{ tour.excursion.url }}" />
+      <div class="super-card-wrapper">
+        <div class="card-wrapper">
+          <p>Длительность: {{ tour.excursion.duration }}</p>
+          <!-- <p>Длительность: {{ tour.excursion.description }}</p> -->
+          <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
+          <p>Билеты: {{ tour.flight.gate}}</p>
+          <p>Отели: {{ tour.hotel.label }}</p>
+          <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+        </div>
+        <img src="{{ tour.excursion.image_small }}" />
+      </div>
+      <div class="card-button-wrapper">
+        <button>Подробнее</button>
       </div>
     </div>
 
