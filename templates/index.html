@@ -2,10 +2,33 @@
 
 {% block main %}
 
-{% for info in all_info %}
+
+{% for user in user_info %}
+<h4 class="card-title">Ваши данные: </h4>
+<div class="jumbotron">
+
+    <p>Вопрос1: {{ user.data.q1 }}</p>
+    <p>Вопрос2: {{ user.data.q2 }}</p>
+    <p>Вопрос3: {{ user.data.q3 }}</p>
+    <p>Вопрос4: {{ user.data.q4 }}</p>
+    <p>Вопрос5: {{ user.data.q5 }}</p>
+    <p>Вопрос6: {{ user.data.q6 }}</p>
+    <p>Вопрос7: {{ user.data.q7 }}</p>
+    <p>Вопрос8: {{ user.data.q8 }}</p>
+    <p>Вопрос9: {{ user.data.q9 }}</p>
+    <p>Вопрос10: {{ user.data.q10 }}</p>
+    <p>Вопрос11: {{ user.data.q11 }}</p>
+</div>
+{% endfor %}
+
+<h4 class="card-title">Свежая подборка туров для вас </h4>
+{% for tour in tour_info %}
 <li>
-    <h4 class="card-title">User Data</h4>
-    <b>{{ info.data }}</b>
+    <div class="jumbotron">
+        <p>Экскурсия: {{ tour.excursion.title }}</p>
+        <p>Билеты: {{ tour.flight.gate}}</p>
+        <p>Отели: {{ tour.hotel.label }}</p>
+    </div>
 </li>
 {% endfor %}
 {% endblock %}

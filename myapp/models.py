@@ -13,4 +13,4 @@ class Country(models.Model):
 
 class UserData(models.Model):
     username = models.CharField(max_length=20)
-    data = models.CharField(max_length=20)
+    data = models.CharField(max_length=1024)
