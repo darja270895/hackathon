@@ -1,50 +1,73 @@
-{% extends 'login_page.html' %}
-
-{% block main %}
-
-{% for user in user_info %}
-<div  >
-    <div>Вопрос1: {{ user.data.q1 }}</div>
-    <div>Вопрос2: {{ user.data.q2 }}</div>
-    <div class="select-box"><p>Вопрос3: {{ user.data.q3 }}</p></div>
-    <div class="select-box"><p>Вопрос4: {{ user.data.q4 }}</p></div>
-    <div class="select-box"><p>Вопрос5: {{ user.data.q5 }}</p></div>
-    <div class="select-box"><p>Вопрос6: {{ user.data.q6 }}</p></div>
-    <div class="select-box"><p>Вопрос7: {{ user.data.q7 }}</p></div>
-    <div class="select-box"><p>Вопрос8: {{ user.data.q8 }}</p></div>
-    <div class="select-box"><p>Вопрос9: {{ user.data.q9 }}</p></div>
-    <div class="select-box"><p>Вопрос10: {{ user.data.q10 }}</p></div>
-    <div class="select-box"><p>Вопрос11: {{ user.data.q11 }}</p></div>
+{% extends 'login_page.html' %} {% block main %} {% for user in user_info %}
+<div class="user-answers-data-wrapper">
+  <div class="user-answer-wrapper">
+    <p>Вопрос1:</p>
+    <div>{{ user.data.q1 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос2:</p>
+    <div>{{ user.data.q2 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос3:</p>
+    <div>{{ user.data.q3 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос4:</p>
+    <div>{{ user.data.q4 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос5:</p>
+    <div>{{ user.data.q5 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос6:</p>
+    <div>{{ user.data.q6 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос7:</p>
+    <div>{{ user.data.q7 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос8:</p>
+    <div>{{ user.data.q8 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос9:</p>
+    <div>{{ user.data.q9 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос10:</p>
+    <div>{{ user.data.q10 }}</div>
+  </div>
+  <div class="user-answer-wrapper">
+    <p>Вопрос11:</p>
+    <div>{{ user.data.q11 }}</div>
+  </div>
 </div>
 {% endfor %}
 
-
-<h4 class="card-title">Свежая подборка туров для вас:</h4>
-<div class="card-body">
-{% for tour in tour_info %}
+<h4 class="card-title">
+  Свежая подборка туров для вас:
+  <div class="card-body">
+    {% for tour in tour_info %}
 
     <div class="jumbotron gridcard">
-        <div class = "cardheader">
+      <div class="cardheader">
         <h3>Экскурсия: {{ tour.excursion.title }}</h3>
-        </div>
-        <div class="card-wrapper">
-        
+      </div>
+      <div class="card-wrapper">
         <p>Длительность: {{ tour.excursion.duration }}</p>
-        <p>Описание: {{ tour.excursion.description }}</p>
+        <p>Длительность: {{ tour.excursion.description }}</p>
         <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
         <p>Билеты: {{ tour.flight.gate}}</p>
         <p>Отели: {{ tour.hotel.label }}</p>
         <p>Стоимость: {{ tour.excursion.netto_price}}</p>
-        
-        <img src="{{ tour.excursion.cover_photo.original }}" class="img"/>
-        </div>
+        <img src="{{ tour.excursion.url }}" />
+      </div>
     </div>
 
-{% endfor %}
-</div>    
-{% endblock %}
-
-
-
-
-
+    {% endfor %}
+  </div>
+  {% endblock %}
+</h4>
