@@ -236,3 +236,36 @@ img.img {
 
   transition: all 0.2s;
 }
+
+.big_card
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(133, 133, 133); /* Fallback color */
+    background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+    justify-content: space-around;
+  }
+
+
+  .big_card_item
+  {
+      width: 50%;
+      height: auto;
+      padding: 30px;
+      background: #C4C4C4;
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+
+      height: 50%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
