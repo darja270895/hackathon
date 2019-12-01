@@ -1,151 +1,147 @@
-@import "fonts";
-
 .select-box {
-    display: flex;
-    flex-flow: column;
-    margin-bottom: 15px;
-    flex: 1;
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 15px;
+  flex: 1;
 }
 
 .select-box p {
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 12px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .content-wrapper {
-    padding: 30px;
-    background: #E2e2e2;
+  padding: 30px;
+  background: #e2e2e2;
 }
 
 .button-wrapper {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 select {
-    word-wrap: normal;
-    padding: 10px 0px;
-    background: #C4C4C4
+  word-wrap: normal;
+  padding: 10px 0px;
+  background: #c4c4c4;
 }
 
 div#select-box-wrapper {
-    display: flex;
-    flex-flow: row wrap;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 * {
-    box-sizing: content-box;
+  box-sizing: content-box;
 }
 
 #head {
-    background: #C4C4C4 !important;
-    display: flex;
-    justify-content: space-between;
+  background: #c4c4c4 !important;
+  display: flex;
+  justify-content: space-between;
 }
 
 #head h5 {
-    font-weight: 500 !important;
-    font-size: 20px;
-    margin: 0;
-    padding: 10px;
-    margin-left: 20px;
+  font-weight: 500 !important;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.data {
+  display: flex;
+  justify-content: flex-start;
 }
 
 nav a {
-    padding: 10px;
-    text-decoration: none !important;
-    text-transform: uppercase;
-    font-size: 12px;
+  padding: 10px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 nav {
-    display: flex;
-    margin-right: 20px;
+  display: flex;
+  margin-right: 20px;
 }
 
 body {
-    background-color: white;
+  background-color: white;
 }
 
 nav a:hover {
-    color: #116466;
-    background: #E7E5E5;
+  color: #116466;
+  background: #e7e5e5;
 }
 
 nav a.selected {
-    color: #E7E5E5;
+  color: #e7e5e5;
 }
 
 .submbutton {
-    background: #7B7878;
-    border-radius: 5px;
-    float: right;
-    margin-top: 12px;
-    padding: 10px !important;
+  background: #7b7878;
+  border-radius: 5px;
+  float: right;
+  margin-top: 12px;
+  padding: 10px !important;
 }
 
 .submbutton:hover {
-    background: cadetblue;
-    border-radius: 5px;
+  background: cadetblue;
+  border-radius: 5px;
 }
 
 .fl {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
 }
 
 div.fl p {
-    line-height: 0px;
+  line-height: 0px;
 }
 
 div.fl select {
-    padding: 12px;
+  padding: 12px;
 }
 
-div.jumbotron p
-{
-    font-size: 12px;
+div.jumbotron p {
+  font-size: 12px;
 }
 
-.card-body 
-{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
 
-h4.card-title
-{
-    margin: 0 20px;
+h4.card-title {
+  padding: 0 20px;
+  width: 100%;
+  background-color: white;
 }
 
-.user_info
-{
-    padding: 0 !important;
-    background-color: #E2E2E2;
-    display: flex;
-    flex-flow: row wrap;
+.user_info {
+  padding: 0 !important;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.cardheader h3
-{
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 21px;
+.cardheader h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
 }
 
-img.img
-{
-    width: 300px;
-    height: auto;
+img.img {
+  width: 300px;
+  height: auto;
 }
-
-
-
 
 .user-info {
   padding: 0 !important;
@@ -167,6 +163,7 @@ img.img
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  padding: 0px 20px 20px 20px;
 }
 
 .user-answer-wrapper {
@@ -197,4 +194,41 @@ img.img
 .user-answer-wrapper:last-child div {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+.card-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.super-card-wrapper {
+  display: flex;
+}
+
+.super-card-wrapper img {
+  width: 25%;
+}
+.gridcard {
+  padding: 20px !important;
+  background-color: #c4c4c4;
+}
+
+.card-button-wrapper button {
+  background: #7b7878;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  font-size: 14px;
+  transition: all 0.2s;
+
+  font-weight: 500;
+}
+
+.card-button-wrapper button:hover {
+  color: black;
+  background-color: white;
+
+  transition: all 0.2s;
 }
