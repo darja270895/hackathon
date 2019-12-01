@@ -3,7 +3,7 @@
 {% block main %}
 
 {% for user in user_info %}
-<div class="user_info" >
+<div  >
     <div>Вопрос1: {{ user.data.q1 }}</div>
     <div>Вопрос2: {{ user.data.q2 }}</div>
     <div class="select-box"><p>Вопрос3: {{ user.data.q3 }}</p></div>
@@ -19,7 +19,7 @@
 {% endfor %}
 
 
-<h4 class="card-title">Свежая подборка туров для вас:
+<h4 class="card-title">Свежая подборка туров для вас:</h4>
 <div class="card-body">
 {% for tour in tour_info %}
 
@@ -28,13 +28,15 @@
         <h3>Экскурсия: {{ tour.excursion.title }}</h3>
         </div>
         <div class="card-wrapper">
+        
         <p>Длительность: {{ tour.excursion.duration }}</p>
-        <p>Длительность: {{ tour.excursion.description }}</p>
+        <p>Описание: {{ tour.excursion.description }}</p>
         <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
         <p>Билеты: {{ tour.flight.gate}}</p>
         <p>Отели: {{ tour.hotel.label }}</p>
         <p>Стоимость: {{ tour.excursion.netto_price}}</p>
-        <img src="{{ tour.excursion.url }}"/>
+        
+        <img src="{{ tour.excursion.cover_photo.original }}" class="img"/>
         </div>
     </div>
 
