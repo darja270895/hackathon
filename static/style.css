@@ -53,6 +53,10 @@ div#select-box-wrapper {
 .data {
   display: flex;
   justify-content: flex-start;
+  padding: 0px;
+}
+.hello {
+  padding-left: 20px;
 }
 
 nav a {
