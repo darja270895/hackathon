@@ -17,22 +17,79 @@ from .helpers.configs.tours import TOURS
 manager = TourManager()
 
 
-def home_page(request):
-    if request.GET.get('q'):
-        message = 'You submitted: %r' % request.GET['q']
+def get_user_ans(request):
+    if request.GET.get('q1'):
+        ans_1 = request.GET['q1']
     else:
-        message = 'You submitted nothing!'
+        ans_1 = 'None'
+    if request.GET.get('q2'):
+        ans_2 = request.GET['q2']
+    else:
+        ans_2 = 'None'
+    if request.GET.get('q3'):
+        ans_3 = request.GET['q3']
+    else:
+        ans_3 = 'None'
+    if request.GET.get('q4'):
+        ans_4 = request.GET['q4']
+    else:
+        ans_4 = 'None'
+    if request.GET.get('q5'):
+        ans_5 = request.GET['q5']
+    else:
+        ans_5 = 'None'
+    if request.GET.get('q6'):
+        ans_6 = request.GET['q6']
+    else:
+        ans_6 = 'None'
+    if request.GET.get('q7'):
+        ans_7 = request.GET['q7']
+    else:
+        ans_7 = 'None'
+    if request.GET.get('q8'):
+        ans_8 = request.GET['q8']
+    else:
+        ans_8 = 'None'
+    if request.GET.get('q9'):
+        ans_9 = request.GET['q9']
+    else:
+        ans_9 = 'None'
+    if request.GET.get('q10'):
+        ans_10 = request.GET['q10']
+    else:
+        ans_10 = 'None'
+    if request.GET.get('q11'):
+        ans_11 = request.GET['q11']
+    else:
+        ans_11 = 'None'
+    data = f"'{ans_1}|" \
+        f"{ans_2}|" \
+        f"{ans_3}|" \
+        f"{ans_4}|" \
+        f"{ans_5}|" \
+        f"{ans_6}|" \
+        f"{ans_7}|" \
+        f"{ans_8}|" \
+        f"{ans_9}|" \
+        f"{ans_10}|" \
+        f"{ans_11}|" \
+        f"'"
+    return data
 
-    print(message)
+
+def home_page(request):
+    message = get_user_ans(request)
+
+    print(f"Fuck Yea{message}")
     # # DATA
     # #########################################################################
-    # limit = 3
+    # limit = 5
     # lang = 'ru'  # OR lang = 'ru'
-    # country_name = 'Spain'
+    # country_name = 'Germany'
     # # OR
-    # # city_name = 'Barcelona'
+    # city_name = 'Barcelona'
     # flights_params = {'origin': 'MSQ',
-    #                   'destination': 'BCN',
+    #                   'destination': 'BER',
     #                   'depart_date': '2020-01-01',  # Enter by user or constant
     #                   'return_date': '2020-12-31',  # Enter by user or constant
     #                   'limit': limit
@@ -48,11 +105,31 @@ def home_page(request):
     #     data = {'excursion': excursions[index],
     #             'flight': flights[index],
     #             'hotel': hotels[index],
-    #             'index': index+1}
+    #             'index': index + 1}
     #     user_info.append(data)
     # context = {'all_info': user_info}
-    #return render(request, 'homepage.html', context)
-    return render(request, 'homepage.html')
+    # return render(request, 'homepage.html', context)
+    # return render(request, 'homepage.html')
+    country_name = 'Испания'
+
+    tour_info = []
+    for country in Country.objects.all():
+        if country.rus_country_name == country_name:
+            name = country.country_name
+            info = TOURS
+            country_data = info.get(name)
+            excursions = country_data.get('Excursions')
+            flights = country_data.get('Flights')
+            hotels = country_data.get('Hotels')
+            for index in range(5):
+                tour_data = {
+                    'excursion': excursions[index],
+                    'flight': flights[index],
+                    'hotel': hotels[index],
+                }
+                tour_info.append(tour_data)
+    context = {'tour_info': tour_info}
+    return render(request, 'homepage.html', context)
 
 
 def info(request):
