@@ -143,3 +143,58 @@ img.img
     width: 300px;
     height: auto;
 }
+
+
+
+
+.user-info {
+  padding: 0 !important;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.user-info {
+  padding: 0 !important;
+  background-color: #e2e2e2;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.user-answers-data-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.user-answer-wrapper {
+  display: flex;
+  flex-flow: column;
+  flex: 1;
+}
+
+.user-answer-wrapper p {
+  margin: 0;
+}
+
+.user-answer-wrapper div {
+  background-color: #c4c4c4c4;
+  display: flex;
+  flex: 1;
+  border-left: 2px solid #757474;
+  padding: 4px 6px;
+  align-items: center;
+}
+
+.user-answer-wrapper:first-child div {
+  border-left: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.user-answer-wrapper:last-child div {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
