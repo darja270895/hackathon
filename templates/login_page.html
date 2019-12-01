@@ -1,11 +1,10 @@
 {% extends "wrapper.html" %}
 {% block content %}
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-8">
-            <h1 class="mt-2">Личный кабинет</h1>
+    <div class="row justify-content-center content-wrapper">
+        <div >
+        <!--    <h1 class="mt-2">Личный кабинет</h1> -->
             {% if user.is_authenticated %}
-                <p class="text-right">
+                <p class="hello">
                     Hello, {{ user.username }}!
                     <a href="/index/logout">Log out</a> |
                     <a href="/index/password-change">
@@ -13,19 +12,18 @@
                     </a>
                 </p>
             {% else %}
-                <p class="text-right">
+                <p >
                     <a href="/index/login">Log in</a> |
                     <a href="/index/register">Register</a>
                 </p>
             {% endif %}
-            <hr class="mt-0 mb-4">
-            <div class="card">
-                <div class="card-body">
+           
+                <div class="user-info">
                     {% block main %}
                     {% endblock %}
                 </div>
-            </div>
+            
         </div>
     </div>
-</div>
+
 {% endblock %}
