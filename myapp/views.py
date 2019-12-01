@@ -18,6 +18,12 @@ manager = TourManager()
 
 
 def home_page(request):
+    if request.GET.get('q'):
+        message = 'You submitted: %r' % request.GET['q']
+    else:
+        message = 'You submitted nothing!'
+
+    print(message)
     # # DATA
     # #########################################################################
     # limit = 3
@@ -44,8 +50,8 @@ def home_page(request):
     #             'hotel': hotels[index],
     #             'index': index+1}
     #     user_info.append(data)
-    # context = {'user_info': user_info}
-    # return render(request, 'homepage.html', context)
+    # context = {'all_info': user_info}
+    #return render(request, 'homepage.html', context)
     return render(request, 'homepage.html')
 
 
@@ -92,7 +98,7 @@ def index(request):
                 excursions = country_data.get('Excursions')
                 flights = country_data.get('Flights')
                 hotels = country_data.get('Hotels')
-                for index in range(3):
+                for index in range(5):
                     tour_data = {
                         'excursion': excursions[index],
                         'flight': flights[index],

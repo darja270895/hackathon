@@ -6,8 +6,8 @@
         <div class="form-row">
 
             <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
+                <label for="inputState">State0</label>
+                <select id="inputState" class="form-control" name="q">
                     <option selected>Choose...</option>
                     <option>...</option>
                 </select>
@@ -39,9 +39,9 @@
         <div class="jumbotron">
             <h1>Тур #{{info.index}}</h1>
             <table>
-                <b>Отель: </b> {{info.hotel}} (англ. {{info.title_en}})<br>
-                <b>Билет: </b>{{info.flight}} <br>
-                <b>Экскурсия: </b> {{info.excursion}}<br>
+                <b>Отель: </b> {{info.hotel.fullName}} <br>
+                <b>Билет: </b>{{info.flight.gate}} <br>
+                <b>Экскурсия: </b> {{info.excursion.title}}<br>
                 <a class="btn btn-lg btn-primary" href={{info.url}} role="button">Больше
                     информации»</a>
         </div>
