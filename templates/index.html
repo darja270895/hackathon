@@ -1,49 +1,50 @@
 {% extends 'login_page.html' %} {% block main %} {% for user in user_info %}
 <div class="user-answers-data-wrapper">
-  <div class="user-answer-wrapper">
-    <p>Вопрос1:</p>
-    <div>{{ user.data.q1 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос2:</p>
-    <div>{{ user.data.q2 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос3:</p>
-    <div>{{ user.data.q3 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос4:</p>
-    <div>{{ user.data.q4 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос5:</p>
-    <div>{{ user.data.q5 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос6:</p>
-    <div>{{ user.data.q6 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос7:</p>
-    <div>{{ user.data.q7 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос8:</p>
-    <div>{{ user.data.q8 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос9:</p>
-    <div>{{ user.data.q9 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос10:</p>
-    <div>{{ user.data.q10 }}</div>
-  </div>
-  <div class="user-answer-wrapper">
-    <p>Вопрос11:</p>
-    <div>{{ user.data.q11 }}</div>
-  </div>
+        <div class="user-answer-wrapper">
+                <p>Погода:</p>
+                <div>{{ user.data.q1 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Тип отдыха:</p>
+                <div>{{ user.data.q2 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>С кем едете:</p>
+                <div>{{ user.data.q3 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Интересы:</p>
+                <div>{{ user.data.q4 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Еда:</p>
+                <div>{{ user.data.q5 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Время в пути</p>
+                <div>{{ user.data.q6 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Спорт:</p>
+                <div>{{ user.data.q7 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Достопримечательности:</p>
+                <div>{{ user.data.q8 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Приоритет:</p>
+                <div>{{ user.data.q9 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Длительность:</p>
+                <div>{{ user.data.q10 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Жильё:</p>
+                <div>{{ user.data.q11 }}</div>
+              </div>
+            </div>
 </div>
 {% endfor %}
 
