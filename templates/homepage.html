@@ -1,52 +1,161 @@
 {% extends "wrapper.html" %}
 {% block content %}
-<main role="main" class="container">
-    <div class="jumbotron">
-        <h1>Нужно придумать какие поля заполнять:</h1>
-        <div class="form-row">
+<main role="main">
+    <div class="content-wrapper">
+        <p>Подберите идеальный тур:</p>
 
-            <div class="form-group col-md-4">
-                <label for="inputState">State0</label>
-                <select id="inputState" class="form-control" name="q">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
+        <form action="/search.php" method="get">
+            <div id="select-box-wrapper">
+                <div class="select-box">
+                    <p>погода</p>
+                    <select name="q1">
+                        <option disabled>Какая погода вам нравится?</option>
+                        <option value="жара">жара</option>
+                        <option selected value="настоящая зима и много снега">настоящая зима и много снега</option>
+                        <option value="нейтральные комфортные дни">нейтральные комфортные дни</option>
+                        <option value="буйство стихии">буйство стихии</option>
+                        <option value="нет предпочтений">нет предочтений</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>тип отдыха</p>
+                    <select name="q2">
+                        <option disabled>Какой отдых вы предпочитаете?</option>
+                        <option value="активный">активный</option>
+                        <option selected value="ленивый">ленивый</option>
+                        <option value="удивите меня">удивите меня</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>с кем едете</p>
+                    <select name="q3">
+                        <option disabled>С кем вы путешествуете?</option>
+                        <option value="в одиночку">в одиночку</option>
+                        <option selected value="парой">парой</option>
+                        <option value="семьёй с детьми">семьёй с детьми</option>
+                        <option value="компанией">компанией</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>интересы</p>
+                    <select name="q4">
+                        <option disabled>Что из этого вам интереснее?</option>
+                        <option value="спорт">спорт</option>
+                        <option selected value="еда">еда</option>
+                        <option value="шоппинг">шоппинг</option>
+                        <option value="достопримечательности">достопримечательности</option>
+                        <option value="природа">природа</option>
+                        <option value="всего понемногу">всего понемногу</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>еда</p>
+                    <select name="q5">
+                        <option disabled>Какую еду предпочитаете?</option>
+                        <option value="сладкое">сладкое</option>
+                        <option selected value="необычные местные блюда">необычные местные блюда</option>
+                        <option value="веганскую">веганскую</option>
+                        <option value="сытную">сытную</option>
+                        <option value="простую и полезную">простую и полезную</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>время в пути</p>
+                    <select name="q6">
+                        <option disabled>Сколько времени вы готовы потратить на дорогу?</option>
+                        <option value="как можно меньше">как можно меньше</option>
+                        <option selected value="не имеет значения">не имеет значения</option>
+                        <option value="несколько (до 6) часов">несколько (до 6) часов</option>
+                    </select>
+                </div>
+
+                <div class="select-box">
+                    <p>спорт</p>
+                    <select name="q7">
+                        <option disabled>Какие виды спорта предпочитаете?</option>
+                        <option value="командные, игровые">командные, игровые</option>
+                        <option selected value="вызывающие прилив адреналина">вызывающие прилив адреналина</option>
+                        <option value="расслабляющие (йога, плавание и т.д.)">расслабляющие (йога, плавание и т.д.)</option>
+                        <option value="вообще не занимаюсь спортом">вообще не занимаюсь спортом</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>достопримечательности</p>
+                    <select name="q8">
+                        <option disabled>Какие достопримечательности вам интереснее?</option>
+                        <option value="музеи искусств">музеи искусств</option>
+                        <option selected value="природные заповедники, удивительные пейзажи">природные заповедники, удивительные пейзажи</option>
+                        <option value="причудливые и максимально необычные">причудливые и максимально необычные</option>
+                        <option value="известнейшие must-see места (как эйфелева башня или китайская стена)">известнейшие must-see места (как эйфелева башня или китайская стена)</option>
+                        <option selected value="места с историей">места с историей</option>
+                        <option value="тусовочные места">тусовочные места</option>
+                        <option value="ничего из этого">ничего из этого</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>приоритет</p>
+                    <select name="q9">
+                        <option disabled>Для вас путешествие - это ...?</option>
+                        <option value="возможность выйти из зоны комфорта">возможность выйти из зоны комфорта</option>
+                        <option selected value="отдых от работы и людей">отдых от работы и людей</option>
+                        <option value="время с близкими">время с близкими</option>
+                        <option value="новые знакомства">новые знакомства</option>
+                        <option value="адреналин и драйв">адреналин и драйв</option>
+                        <option value="единение с природой">единение с природой</option>
+                        <option value="возможность узнать что-то новое">возможность узнать что-то новое</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>длительность</p>
+                    <select name="q10">
+                        <option disabled>Оптимальная длительность поездки?</option>
+                        <option value="на уикэнд">на уикэнд</option>
+                        <option selected value="на неделю">на неделю</option>
+                        <option value="две недели">две недели</option>
+                        <option value="месяц">месяц</option>
+                        <option value="пока не ясно">пока не ясно</option>
+                    </select>
+                </div>
+                <div class="select-box">
+                    <p>жилье</p>
+                    <select name="q11">
+                        <option disabled>Где вы любите останавливаться?</option>
+                        <option value="в отелях "всЁ включено", чтобы ни о чём не заботиться">в отелях "всЁ включено", чтобы ни о чём не заботиться</option>
+                        <option selected value="в местах подешевле">в местах подешевле</option>
+                        <option value="в туристической части города">в туристической части города</option>
+                        <option value="в интересных и необычных местах">в интересных и необычных местах</option>
+                        <option value="нет предпочтений">нет предпочтений</option>
+                    </select>
+                </div>
             </div>
-
-
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
+            <div class="button-wrapper">
+                <input type="submit" value="Подобрать тур" class="submbutton">
             </div>
-
-            <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>
-            </div>
-        </div>
-
-
-        <a class="btn btn-lg btn-primary" href="/" role="button">Подобрать
-            тур»</a>
-
-        {% for info in all_info %}
-        <div class="jumbotron">
-            <h1>Тур #{{info.index}}</h1>
-            <table>
-                <b>Отель: </b> {{info.hotel.fullName}} <br>
-                <b>Билет: </b>{{info.flight.gate}} <br>
-                <b>Экскурсия: </b> {{info.excursion.title}}<br>
-                <a class="btn btn-lg btn-primary" href={{info.url}} role="button">Больше
-                    информации»</a>
-        </div>
-        {% endfor %}
+        </form>
     </div>
+    
+
+    <h4 class="card-title">Свежая подборка туров для вас:
+        <div class="card-body">
+            {% for tour in tour_info %}
+
+            <div class="jumbotron gridcard">
+                <div class="cardheader">
+                    <h3>Экскурсия: {{ tour.excursion.title }}</h3>
+                </div>
+                <div class="card-wrapper">
+                    <p>Длительность: {{ tour.excursion.duration }}</p>
+                    <p>Длительность: {{ tour.excursion.description }}</p>
+                    <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
+                    <p>Билеты: {{ tour.flight.gate}}</p>
+                    <p>Отели: {{ tour.hotel.label }}</p>
+                    <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+                    <img src="{{ tour.excursion.url }}"/>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
 </main>
 
 {% endblock %}

@@ -1,39 +1,121 @@
-{% extends 'login_page.html' %}
-
-{% block main %}
-
-
-{% for user in user_info %}
-<h4 class="card-title">Ваши данные: </h4>
-<div class="jumbotron">
-
-    <p>Вопрос1: {{ user.data.q1 }}</p>
-    <p>Вопрос2: {{ user.data.q2 }}</p>
-    <p>Вопрос3: {{ user.data.q3 }}</p>
-    <p>Вопрос4: {{ user.data.q4 }}</p>
-    <p>Вопрос5: {{ user.data.q5 }}</p>
-    <p>Вопрос6: {{ user.data.q6 }}</p>
-    <p>Вопрос7: {{ user.data.q7 }}</p>
-    <p>Вопрос8: {{ user.data.q8 }}</p>
-    <p>Вопрос9: {{ user.data.q9 }}</p>
-    <p>Вопрос10: {{ user.data.q10 }}</p>
-    <p>Вопрос11: {{ user.data.q11 }}</p>
+{% extends 'login_page.html' %} {% block main %} {% for user in user_info %}
+<div class="user-answers-data-wrapper">
+        <div class="user-answer-wrapper">
+                <p>Погода:</p>
+                <div>{{ user.data.q1 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Тип отдыха:</p>
+                <div>{{ user.data.q2 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>С кем едете:</p>
+                <div>{{ user.data.q3 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Интересы:</p>
+                <div>{{ user.data.q4 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Еда:</p>
+                <div>{{ user.data.q5 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Время в пути</p>
+                <div>{{ user.data.q6 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Спорт:</p>
+                <div>{{ user.data.q7 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Достопримечательности:</p>
+                <div>{{ user.data.q8 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Приоритет:</p>
+                <div>{{ user.data.q9 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Длительность:</p>
+                <div>{{ user.data.q10 }}</div>
+              </div>
+              <div class="user-answer-wrapper">
+                <p>Жильё:</p>
+                <div>{{ user.data.q11 }}</div>
+              </div>
+            </div>
 </div>
 {% endfor %}
 
-<h4 class="card-title">Свежая подборка туров для вас </h4>
-{% for tour in tour_info %}
-<li>
-    <div class="jumbotron">
-        <p>Экскурсия: {{ tour.excursion.title }}</p>
-        <p>Билеты: {{ tour.flight.gate}}</p>
-        <p>Отели: {{ tour.hotel.label }}</p>
+<h4 class="card-title">
+  <span style="padding-left: 20px">Свежая подборка туров для вас:</span>
+  <div class="card-body">
+    {% for tour in tour_info %}
+
+    <div class="jumbotron gridcard">
+      <div class="cardheader">
+        <h3>Экскурсия: {{ tour.excursion.title }}</h3>
+      </div>
+      <div class="super-card-wrapper">
+        <div class="card-wrapper">
+          <p>Длительность: {{ tour.excursion.duration }}</p>
+          <!-- <p>Длительность: {{ tour.excursion.description }}</p> -->
+          <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
+          <p>Билеты: {{ tour.flight.gate}}</p>
+          <p>Отели: {{ tour.hotel.label }}</p>
+          <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+        </div>
+        <img src="{{ tour.excursion.image_small }}" />
+      </div>
+      <div class="card-button-wrapper" id="myBtn{{ tour.excursion.id }}">
+        <button>Подробнее</button>
+      </div>
     </div>
-</li>
-{% endfor %}
-{% endblock %}
 
+    <div class="big_card" id="big_card{{ tour.excursion.id }}">
+      <div class="big_card_item">
+        <div class="modal-header">
+          <h5>Экскурсия: {{ tour.excursion.title }}</h5>
+        </div>
+        <div style="display:flex">
+          <div class="modal-data">
+            <div class="model-short-data">
+              <p>Длительность: {{ tour.excursion.duration }}</p>
+              <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
+              <p>Билеты: {{ tour.flight.gate}}</p>
+              <p>Отели: {{ tour.hotel.label }}</p>
+              <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+            </div>
+            <div class="model-description">
+              <p>Описание: {{ tour.excursion.description }}</p>
+            </div>
+          </div>
+          <img src="{{ tour.excursion.cover_photo.original }}" class="img" />
+        </div>
+      </div>
+    </div>
 
+    <script>
+      var btn = document.getElementById("myBtn{{ tour.excursion.id }}");
 
-
-
+      btn.onclick = function() {
+        document.getElementById(
+          "big_card{{ tour.excursion.id }}"
+        ).style.display = "block";
+      };
+    </script>
+    {% endfor %}
+  </div>
+  <script>
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target.id.includes("big_card")) {
+        for (let element of document.getElementsByClassName("big_card")) {
+          element.style.display = "none";
+        }
+      }
+    };
+  </script>
+  {% endblock %}
+</h4>

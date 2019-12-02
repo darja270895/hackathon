@@ -1,4 +1,31 @@
-{% extends "wrapper.html" %}
+{% extends "wrapper.html" %} 
+
+{% load static %}
+
 {% block content %}
-<h1>Описание что тут просиходит</h1>
+<div class="justify-content-center content-wrapper data">
+  <div>
+    <img src="{% static 'team.jpg' %}" alt="dream_team" class="info_img">  
+  </div>
+<div class="info_vertical">  
+<h4>О проекте</h4>
+<p>
+  Мы разработали сервис, который на основе твоих личных предпочтений порекомендует тебе именно то направление для путешествия, которое понравится лично тебе. И сделает это за несколько минут. </p>
+<p>  Всё, что тебе понадобится - это рассказать нам о своих увлечениях и вкусах, выбрать понравившееся направление из того, что мы тебе предложим, и получить удовольствие от отдыха. </p>
+ <p> Если говорить об оптимизации путешествий для наших пользователей, мы хотели бы помочь не только найти лучшее место для отдыха, но и предложить наиболее оптимальный способ путешествовать. Поэтому мы хотим улучшить логистику предлагаемых путешествий. И если для того, чтобы попасть в свой любимый город, авиакомпании предлагают неудобную стыковку, мы поможем провести это время с пользой для каждого пользователя.
+
+</p>
+
+<h5>Наша команда:</h5>
+<ul class="team_list">
+<li>  <img src="{% static 'dara.jpg' %}" alt="dream_team" class="info_img sm"> Дарья Прудильник</li>
+<li> <img src="{% static 'ann.jpg' %}" alt="dream_team" class="info_img sm"> Анна Запрутская</li>
+<li>  <img src="{% static 'nick.jpg' %}" alt="dream_team" class="info_img sm"> Никита Чупиков</li>
+<li>  <img src="{% static 'dm.jpg' %}" alt="dream_team" class="info_img sm"> Дмитрий Киржанов</li>
+<li> <img src="{% static 'pavel.jpg' %}" alt="dream_team" class="info_img sm"> Павел Брилёв</li>    
+</ul>
+</div>
+
+
+</div>
 {% endblock %}
