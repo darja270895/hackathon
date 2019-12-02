@@ -1,5 +1,26 @@
 {% extends "wrapper.html" %} {% block content %}
 <div class="justify-content-center content-wrapper data">
-  <h1>Уже готовые туры</h1>
-</div>
+  <h4 class="card-title">Насладитесь одним из наших готовых туров:
+  </div>
+        <div class="card-body">
+            {% for tour in tour_info %}
+
+            <div class="jumbotron gridcard">
+                <div class="cardheader">
+                    <h3>Экскурсия: {{ tour.excursion.title }}</h3>
+                </div>
+                <div class="card-wrapper">
+                    <p>Длительность: {{ tour.excursion.duration }}</p>
+                    <p>Длительность: {{ tour.excursion.description }}</p>
+                    <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
+                    <p>Билеты: {{ tour.flight.gate}}</p>
+                    <p>Отели: {{ tour.hotel.label }}</p>
+                    <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+                    <img src="{{ tour.excursion.url }}"/>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
 {% endblock %}

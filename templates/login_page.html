@@ -3,6 +3,7 @@
     <div class="justify-content-center content-wrapper data">
         <div style="width: 100%;">
         <!--    <h1 class="mt-2">Личный кабинет</h1> -->
+        <div class="login_wrapper">
             {% if user.is_authenticated %}
                 <p class="hello">
                     Hello, {{ user.username }}!
@@ -17,7 +18,7 @@
                     <a href="/index/register">Register</a>
                 </p>
             {% endif %}
-           
+        </div>   
                 <div class="user_info">
                     {% block main %}
                     {% endblock %}
