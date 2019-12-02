@@ -363,8 +363,20 @@ div.btns-wrapper
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
-  padding:30px;
+  padding:0 30px 30px  30px;
   align-content: flex-start;
+}
+
+div.btns-wrapper p
+{
+  margin:0;
+  padding: 0;
+}
+
+div.btns-wrapper h4
+{
+  margin: 0 20px 20px 0;
+  padding:0;
 }
 
 div.btns
@@ -382,4 +394,5 @@ div.btns button
 div.login_wrapper
 {
   padding:30px 30px 0 30px;
+  margin: 0;
 }
