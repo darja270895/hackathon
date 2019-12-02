@@ -1,26 +1,22 @@
-{% extends "wrapper.html" %} {% block content %}
+{% extends "wrapper.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="tour-wrapper">
 <div class="justify-content-center content-wrapper data">
-  <h4 class="card-title">Насладитесь одним из наших готовых туров:
-  </div>
-        <div class="card-body">
-            {% for tour in tour_info %}
+    <h4 class="card-title">Насладитесь одним из наших готовых туров:
+</div>
 
-            <div class="jumbotron gridcard">
-                <div class="cardheader">
-                    <h3>Экскурсия: {{ tour.excursion.title }}</h3>
-                </div>
-                <div class="card-wrapper">
-                    <p>Длительность: {{ tour.excursion.duration }}</p>
-                    <p>Длительность: {{ tour.excursion.description }}</p>
-                    <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
-                    <p>Билеты: {{ tour.flight.gate}}</p>
-                    <p>Отели: {{ tour.hotel.label }}</p>
-                    <p>Стоимость: {{ tour.excursion.netto_price}}</p>
-                    <img src="{{ tour.excursion.url }}"/>
-                </div>
-            </div>
+<div class="justify-content-center content-wrapper data tour">
+    <div>
+        <img src="{% static 'tours.jpg' %}" alt="dream_team">
+    </div>
 
-            {% endfor %}
-        </div>
 
-{% endblock %}
+    <div/>
+</div>
+        {% endblock %}

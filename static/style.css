@@ -398,3 +398,15 @@ div.login_wrapper
   padding:30px 30px 0 30px;
   margin: 0;
 }
+
+
+
+.tour-wrapper{
+display:flex;
+flex-flow:column;
+}
+
+
+.tour-wrapper div.tour
+{
+width:100% !important;}
