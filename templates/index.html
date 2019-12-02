@@ -1,4 +1,4 @@
-{% extends 'login_page.html' %} {% block main %} {% for user in user_info %}
+{% extends 'login_page.html' %} {% for user in user_info %}
 <div class="user-answers-data-wrapper">
         <div class="user-answer-wrapper">
                 <p>Погода:</p>
@@ -47,7 +47,7 @@
             </div>
 </div>
 {% endfor %}
-
+{% block main %}
 <h4 class="card-title">
   <span style="padding-left: 20px">Свежая подборка туров для вас:</span>
   <div class="card-body">

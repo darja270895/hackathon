@@ -291,10 +291,12 @@ img.img {
 .model-description {
   max-height: 200px;
   overflow-y: auto;
+
 }
 
 .modal-data {
   margin-right: 20px;
+  width:60%;
 }
 
 .modal-header {

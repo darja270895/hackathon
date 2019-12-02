@@ -81,7 +81,7 @@ def get_user_ans(request):
 def home_page(request):
     message = get_user_ans(request)
 
-    print(f"Fuck Yea{message}")
+    # print(f"Fuck Yea{message}")
     # # DATA
     # #########################################################################
     # limit = 5
@@ -112,6 +112,16 @@ def home_page(request):
     # return render(request, 'homepage.html', context)
     # return render(request, 'homepage.html')
     country_name = 'Испания'
+    if request.GET.get('q1'):
+        ans = request.GET['q1']
+        if ans == 'нейтральные комфортные дни':
+            country_name = 'Франция'
+        elif ans == 'буйство стихии':
+            country_name = 'Финляндия'
+        else:
+            country_name = 'Греция'
+
+
 
     tour_info = []
     for country in Country.objects.all():
