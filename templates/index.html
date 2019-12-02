@@ -48,7 +48,7 @@
 {% endfor %}
 
 <h4 class="card-title">
-  Свежая подборка туров для вас:
+  <span style="padding-left: 20px">Свежая подборка туров для вас:</span>
   <div class="card-body">
     {% for tour in tour_info %}
 
@@ -71,53 +71,50 @@
         <button>Подробнее</button>
       </div>
     </div>
+
     <div class="big_card" id="big_card{{ tour.excursion.id }}">
       <div class="big_card_item">
-          <div class = "cardheader">
-              <h3>Экскурсия: {{ tour.excursion.title }}</h3>
-          </div>
-          <div class="card-wrapper">
-          <div>
+        <div class="modal-header">
+          <h5>Экскурсия: {{ tour.excursion.title }}</h5>
+        </div>
+        <div style="display:flex">
+          <div class="modal-data">
+            <div class="model-short-data">
               <p>Длительность: {{ tour.excursion.duration }}</p>
-              <p>Описание: {{ tour.excursion.description }}</p>
               <p>Язык экскурсии: {{ tour.excursion.languages }}</p>
               <p>Билеты: {{ tour.flight.gate}}</p>
               <p>Отели: {{ tour.hotel.label }}</p>
               <p>Стоимость: {{ tour.excursion.netto_price}}</p>
+            </div>
+            <div class="model-description">
+              <p>Описание: {{ tour.excursion.description }}</p>
+            </div>
           </div>
-          <img src="{{ tour.excursion.cover_photo.original }}" class="img"/>
-          </div>
-      </div>    
-  </div>
+          <img src="{{ tour.excursion.cover_photo.original }}" class="img" />
+        </div>
+      </div>
+    </div>
 
+    <script>
+      var btn = document.getElementById("myBtn{{ tour.excursion.id }}");
 
-  <script>
-
-          // Get the modal
-          
-          
-          // Get the button that opens the modal
-          var btn = document.getElementById("myBtn{{ tour.excursion.id }}");
-          
-          // When the user clicks on the button, open the modal
-          btn.onclick = function() {
-              document.getElementById("big_card{{ tour.excursion.id }}").style.display = "block";
-          }
-          
-         
-          
-      </script>
+      btn.onclick = function() {
+        document.getElementById(
+          "big_card{{ tour.excursion.id }}"
+        ).style.display = "block";
+      };
+    </script>
     {% endfor %}
   </div>
   <script>
-     // When the user clicks anywhere outside of the modal, close it
-     window.onclick = function(event) {
-            if (event.target.id.includes('big_card')) {
-              for(let element of document.getElementsByClassName("big_card")) {
-                element.style.display = "none";
-              }
-            }
-          }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target.id.includes("big_card")) {
+        for (let element of document.getElementsByClassName("big_card")) {
+          element.style.display = "none";
+        }
+      }
+    };
   </script>
   {% endblock %}
 </h4>

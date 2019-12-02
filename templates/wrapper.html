@@ -13,36 +13,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--    <style>-->
-
-    <!--        nav a:hover-->
-    <!--{-->
-    <!--    color: #116466;-->
-    <!--    background: cadetblue;-->
-    <!--}-->
-
-    <!--nav a.selected{-->
-    <!-- color: #116466;-->
-    <!--}-->
-
-    <!--.submbutton-->
-    <!--{-->
-    <!--width: 187px;-->
-    <!--height: 36px;-->
-    <!--background: #3fb0ac;-->
-    <!--border-radius: 5px;-->
-    <!--}-->
-
-    <!--.submbutton:hover-->
-    <!--{-->
-    <!--background: #173e43;-->
-    <!--}-->
-    <!--    </style>-->
+  
 </head>
 
 <body>
     <header id="head">
-        <h5>Цякай з гораду</h5>
+        <div class="logo-wrapper">
+                <img src="{% static 'logo.svg' %}" alt="stylesq">
+        <h5>Цякай з гораду</h5></div>
         <nav>
             <a class="text-dark selected" href="/">Главная</a>
             <a class="text-dark" href="/tours">Готовые туры</a>

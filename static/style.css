@@ -14,6 +14,10 @@
 .content-wrapper {
   padding: 30px;
   background: #e2e2e2;
+  top: 43px;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .button-wrapper {
@@ -40,6 +44,10 @@ div#select-box-wrapper {
   background: #c4c4c4 !important;
   display: flex;
   justify-content: space-between;
+  height: 43px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 
 #head h5 {
@@ -47,7 +55,6 @@ div#select-box-wrapper {
   font-size: 20px;
   margin: 0;
   padding: 10px;
-  margin-left: 20px;
 }
 
 .data {
@@ -122,7 +129,6 @@ div.jumbotron p {
 }
 
 h4.card-title {
-  padding: 0 20px;
   width: 100%;
   background-color: white;
 }
@@ -237,35 +243,60 @@ img.img {
   transition: all 0.2s;
 }
 
-.big_card
-{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 5; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(133, 133, 133); /* Fallback color */
-    background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
-    justify-content: space-around;
-  }
+.big_card {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 5; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(133, 133, 133); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
+  justify-content: space-around;
+}
 
+.big_card_item {
+  top: 20% !important;
+  left: 25% !important;
+  border-radius: 15px;
+  width: 50%;
+  height: auto;
+  padding: 30px;
+  background: #c4c4c4;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  font-size: 14px;
+  overflow: auto; /* Enable scroll if needed */
+}
 
-  .big_card_item
-  {
-      width: 50%;
-      height: auto;
-      padding: 30px;
-      background: #C4C4C4;
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      left: 0;
-      top: 0;
+.model-short-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
 
-      height: 50%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+.model-description {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.modal-data {
+  margin-right: 20px;
+}
+
+.modal-header {
+  padding: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+.logo-wrapper {
+  display: flex;
+  margin-left: 20px;
+}
