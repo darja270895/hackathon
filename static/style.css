@@ -11,6 +11,10 @@
   font-size: 12px;
 }
 
+.select-box select {
+  font-size: 12px;
+}
+
 .content-wrapper {
   padding: 30px;
   background: #e2e2e2;
@@ -177,7 +181,8 @@ img.img {
 }
 
 .user-answer-wrapper p {
-  margin: 0;
+  margin: 5px;
+  font-size: 12px;
 }
 
 .user-answer-wrapper div {
@@ -187,6 +192,7 @@ img.img {
   border-left: 2px solid #757474;
   padding: 4px 6px;
   align-items: center;
+  font-size: 12px;
 }
 
 .user-answer-wrapper:first-child div {
